@@ -4,8 +4,9 @@
   "description": "Limit the area of focus",
   "main": "build/index.js",
   "scripts": {
+    "lint": "eslint source/**/*.js",
     "prebuild": "rimraf build",
-    "build": "babel --out-dir build source"
+    "build": "babel --out-dir build source && uglifyjs build/index.js --compress --mangle --output build/index.js"
   },
   "repository": "https://github.com/miniven/focus-limit.git",
   "author": "Benjamin Trepachko <trepven@gmail.com>",
@@ -13,6 +14,10 @@
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-preset-env": "1.6.1",
-    "rimraf": "2.6.2"
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "rimraf": "2.6.2",
+    "uglify-js": "^3.3.18"
   }
 }
