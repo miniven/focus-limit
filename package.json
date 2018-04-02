@@ -2,8 +2,17 @@
   "name": "focus-limit",
   "version": "1.0.0",
   "description": "Limit the area of focus",
-  "main": "index.js",
+  "main": "build/index.js",
+  "scripts": {
+    "prebuild": "rimraf build",
+    "build": "babel --out-dir build source"
+  },
   "repository": "https://github.com/miniven/focus-limit.git",
   "author": "Benjamin Trepachko <trepven@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "rimraf": "2.6.2"
+  }
 }
