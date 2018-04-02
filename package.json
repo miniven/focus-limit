@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint source/**/*.js",
     "prebuild": "rimraf build",
-    "build": "babel --out-dir build source && uglifyjs build/index.js --output build/index.js"
+    "build": "babel --out-dir build source && uglifyjs build/index.js --compress --mangle --output build/index.js"
   },
   "repository": "https://github.com/miniven/focus-limit.git",
   "author": "Benjamin Trepachko <trepven@gmail.com>",
