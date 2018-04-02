@@ -1,0 +1,9 @@
+{
+  "name": "focus-limit",
+  "version": "1.0.0",
+  "description": "Limit the area of focus",
+  "main": "index.js",
+  "repository": "https://github.com/miniven/focus-limit.git",
+  "author": "Benjamin Trepachko <trepven@gmail.com>",
+  "license": "MIT"
+}
