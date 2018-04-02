@@ -52,36 +52,20 @@ const focusLimiter = (node) => {
 
   const handleKeydown = (event) => {
     const currentIndex = focusableElements.indexOf(event.target);
+    let nextFocus;
 
     if (event.keyCode !== keyCodes.TAB) return false;
 
-    switch (event.target) {
-      case last:
-        if (!event.shiftKey) {
-          first.focus();
-          event.preventDefault();
-        }
-
-        break;
-      case first:
-        if (event.shiftKey) {
-          last.focus();
-          event.preventDefault();
-        }
-
-        break;
-      default:
-        if (event.shiftKey) {
-          focusableElements[currentIndex - 1].focus();
-        } else {
-          focusableElements[currentIndex + 1].focus();
-        }
-
-        event.preventDefault();
-        break;
+    if (!event.shiftKey) {
+      nextFocus = focusableElements[currentIndex + 1] || first;
+    } else {
+      nextFocus = focusableElements[currentIndex - 1] || last;
     }
 
-    return true;
+    nextFocus.focus();
+    event.preventDefault();
+
+    return event;
   };
 
   const limit = () => {
