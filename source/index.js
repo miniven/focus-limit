@@ -1,4 +1,4 @@
-const focusLimiter = (node) => {
+const focusLimit = (node) => {
   const focusableElementsSelectors = [
     'a[href]',
     'button:not([disabled])',
@@ -31,16 +31,16 @@ const focusLimiter = (node) => {
   };
 
   const sortByTabindex = (prev, current) => {
-    const prevTabindex = Number(prev.getAttribute('tabindex'));
-    const currentTabindex = Number(current.getAttribute('tabindex'));
+    const prevTabindex = prev.getAttribute('tabindex');
+    const currentTabindex = current.getAttribute('tabindex');
 
-    if (prevTabindex === 0 && currentTabindex === 0) return 0;
+    if (prevTabindex === undefined && currentTabindex === undefined) return 0;
 
-    if (prevTabindex === 0) return 1;
+    if (prevTabindex === undefined) return 1;
 
-    if (currentTabindex === 0) return -1;
+    if (currentTabindex === undefined) return -1;
 
-    return prevTabindex > currentTabindex ? 1 : currentTabindex - prevTabindex;
+    return Number(prevTabindex) > Number(currentTabindex) ? 1 : Number(currentTabindex) - Number(prevTabindex);
   };
 
   const focusableElements = [...node.querySelectorAll(focusableElementsSelectors.join())]
@@ -82,4 +82,4 @@ const focusLimiter = (node) => {
   };
 };
 
-export default focusLimiter;
+export default focusLimit;
