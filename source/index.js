@@ -17,7 +17,7 @@ const focusLimit = (node) => {
     TAB: 9,
   };
 
-  const isVisible = field => field.style.display !== 'none';
+  const isVisible = field => field.style.display !== 'none' && field.type !== 'hidden';
 
   const isTabable = (field) => {
     if (field.hasAttribute('tabindex')) {
